@@ -1,0 +1,10 @@
+{
+  "restaurant": "Charger AR Demo",
+  "items": [
+    {
+      "name": "Charger",
+      "model": "model/charger2.glb",
+      "scale": 0.35
+    }
+  ]
+}

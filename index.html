@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <!-- Animation Support -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>AR Charger Demo</title>
+
+</head>
+
+<body style="margin:0; overflow:hidden;">
+
+    <!-- Loading Screen -->
+    <div id="loading">
+        <h1>Loading Charger AR...</h1>
+        <div class="loader"></div>
+    </div>
+
+    <!-- Top Bar -->
+    <div id="topBar">
+        <div id="restaurantName">
+            Charger AR Demo
+        </div>
+    </div>
+
+    <!-- Help Text -->
+    <div id="helpText">
+        Scan the Hiro Marker
+    </div>
+
+    <!-- AR Scene -->
+    <a-scene
+        embedded
+        vr-mode-ui="enabled:false"
+        renderer="antialias:true; alpha:true;"
+        arjs="trackingMethod: best;
+              sourceType: webcam;
+              debugUIEnabled: false;">
+
+        <!-- Assets -->
+        <a-assets>
+            <a-asset-item
+                id="chargerModel"
+                src="model/charger2.glb">
+            </a-asset-item>
+        </a-assets>
+
+        <!-- Marker -->
+        <a-marker preset="hiro">
+
+            <a-entity
+                id="charger"
+
+                gltf-model="#chargerModel"
+
+                position="0 0 0"
+
+                rotation="0 0 0"
+
+                scale="0.35 0.35 0.35"
+
+                animation-mixer="
+                    clip: *;
+                    loop: repeat;
+                    repetitions: Infinity;
+                    timeScale: 1;">
+            </a-entity>
+
+        </a-marker>
+
+        <!-- Camera -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+
+    <script>
+
+        window.addEventListener("load", () => {
+            document.getElementById("loading").style.display = "none";
+        });
+
+    </script>
+
+</body>
+
+</html>
