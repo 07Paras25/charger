@@ -4,7 +4,7 @@
     {
       "name": "Charger",
       "model": "model/charger2.glb",
-      "scale": 2
+      "scale": 0.6
     }
   ]
 }
